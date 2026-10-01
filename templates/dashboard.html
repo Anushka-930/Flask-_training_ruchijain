@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}My Library | Shelfwise{% endblock %}
+{% block content %}
+<p class="eyebrow">Your collection</p>
+<h1>Good to see you, {{ session.get('user_name') }}.</h1>
+<p class="intro">What would you like to do with your library today?</p>
+<div class="actions">
+    <a class="button" href="{{ url_for('books') }}">See books</a>
+    <a class="button secondary" href="{{ url_for('add_book') }}">Submit a book</a>
+</div>
+{% endblock %}

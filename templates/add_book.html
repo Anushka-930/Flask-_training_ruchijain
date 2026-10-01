@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Submit a Book | Shelfwise{% endblock %}
+{% block content %}
+<section class="panel">
+    <p class="eyebrow">Add to your collection</p>
+    <h1>Submit a book</h1>
+    <form method="post">
+        <label for="name">Book name</label>
+        <input id="name" name="name" required value="{{ request.form.get('name', '') }}">
+        <label for="book_number">Book number</label>
+        <input id="book_number" name="book_number" required value="{{ request.form.get('book_number', '') }}">
+        <label for="author">Book author</label>
+        <input id="author" name="author" required value="{{ request.form.get('author', '') }}">
+        <label for="book_type">Book type</label>
+        <input id="book_type" name="book_type" placeholder="Fiction, reference, textbook..." required value="{{ request.form.get('book_type', '') }}">
+        <label for="issue_date">Issue date</label>
+        <input id="issue_date" name="issue_date" type="date" required value="{{ request.form.get('issue_date', '') }}">
+        <button class="button" type="submit">Save book</button>
+    </form>
+</section>
+{% endblock %}

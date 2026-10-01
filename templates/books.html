@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}See Books | Shelfwise{% endblock %}
+{% block content %}
+<p class="eyebrow">Your collection</p>
+<h1>Books on record</h1>
+<div class="actions"><a class="button" href="{{ url_for('add_book') }}">Submit a book</a><a class="button secondary" href="{{ url_for('dashboard') }}">Back to library</a></div>
+{% if books %}
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>Book no.</th><th>Book name</th><th>Author</th><th>Type</th><th>Issue date</th></tr></thead>
+            <tbody>
+                {% for book in books %}
+                    <tr><td>{{ book.book_number }}</td><td>{{ book.name }}</td><td>{{ book.author }}</td><td>{{ book.book_type }}</td><td>{{ book.issue_date }}</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <div class="empty">No books have been added yet. Use “Submit a book” to add the first one.</div>
+{% endif %}
+{% endblock %}

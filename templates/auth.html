@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Sign up' if mode == 'signup' else 'Log in' }} | Shelfwise{% endblock %}
+{% block content %}
+<section class="panel">
+    <p class="eyebrow">Shelfwise account</p>
+    <h1>{{ 'Create an account' if mode == 'signup' else 'Welcome back' }}</h1>
+    <form method="post">
+        {% if mode == 'signup' %}
+            <label for="name">Your name</label>
+            <input id="name" name="name" autocomplete="name" required value="{{ request.form.get('name', '') }}">
+        {% endif %}
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="email" required value="{{ request.form.get('email', '') }}">
+        <label for="password">Password{% if mode == 'signup' %} (8 characters minimum){% endif %}</label>
+        <input id="password" name="password" type="password" autocomplete="{{ 'new-password' if mode == 'signup' else 'current-password' }}" required>
+        <button class="button" type="submit">{{ 'Create account' if mode == 'signup' else 'Log in' }}</button>
+    </form>
+    <p class="subtle">{% if mode == 'signup' %}Already registered? <a href="{{ url_for('login') }}">Log in</a>{% else %}New to Shelfwise? <a href="{{ url_for('signup') }}">Create an account</a>{% endif %}</p>
+</section>
+{% endblock %}
