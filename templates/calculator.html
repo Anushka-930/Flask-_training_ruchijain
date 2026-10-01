@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Calculate Average Marks
+    </h1>
+    <form  method="post">
+        <div>
+        <label for="num1"> maths </label>
+        <input type="text" name='num1' placeholder="num1" required>
+        </div>
+        <br>
+        <br>
+        <div>
+        <label for="num2"> science </label>
+        <input type="text" name='num2' placeholder="num2" required>
+        </div>
+        <br>
+        <br>
+        <div>
+        <button type="submit" name="operation" value="add">Addition</button>
+        <button type="submit" name="operation" value="sub">Subtraction</button>
+        <button type="submit" name="operation" value="mul">Multiplication</button>
+        <button type="submit" name="operation" value="div">Division</button>
+        </div>
+    </form>
+
+    <br>
+    <h2>Answer: {{ answer }}</h2>
+
+
+</body>
+</html>
